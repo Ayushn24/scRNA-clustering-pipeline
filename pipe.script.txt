@@ -1,0 +1,8 @@
+nextflow run scrna_pipeline.nf \
+  --zip_file test.zip \
+  --qc_script qc_script.py \
+  --norm_script norm_script.py \
+  --dim_reduc_script dimreduc_script.py \
+  --clus_script clus_script.py \
+  --mrkgen_script mrkgen_script.py \
+  -with-docker
