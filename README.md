@@ -16,14 +16,14 @@ Each step generates its own outputs inside the structured `results/` directory.
 
 ## 🚀 Quick Start
 
-### 1. Clone the Repository
+
+### 1. Build or Load Docker Image
+
+To build the Docker image from your Dockerfile:
 
 ```bash
-git clone https://github.com/your-username/scrna-clustering-pipeline.git
-cd scrna-clustering-pipeline
+docker build -t scrna_docker_image .
 ```
-
-### 2. Load or Build Docker Image
 
 If you have the Docker image file (`scrna_docker_image.tar`):
 
@@ -44,6 +44,19 @@ docker {
   pullLatest = true
 }
 ```
+### 2. Launch Directory Structure
+
+Ensure your launch directory contains:
+- `nextflow.config`
+- `scrna_pipeline.nf` (Nextflow script)
+- 5 Python scripts:
+  --qc_script.py \
+  --norm_script.py \
+  --dimreduc_script.py \
+  --clus_script.py \
+  --mrkgen_script.py \
+- A test dataset in **10X Genomics format** (required by `scanpy.read_10x_mtx()`)
+
 
 ### 3. Run the Pipeline
 
